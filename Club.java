@@ -1,26 +1,21 @@
-
 package club;
 
+import java.util.Scanner;
+
 public class Club {
-    private String Name;
+
+     private String Name;
     private String SideName;
     private Student Student[];
     private int MaxMember;
     private int count;
     
-    /*public Club(String Name,String SideName,int MaxMember){
-        this.Name = Name;
-        this.SideName = SideName;
-        this.MaxMember = MaxMember;
-        
-    }
-*/
-    private void setClub(String Name,String SideName,int MaxMember){
-        this.Name = Name;
-        this.SideName = SideName;
-        this.MaxMember = MaxMember;
-        
-    }
+//    public Club(String Name,String SideName,int MaxMember){
+//        this.Name = Name;
+//        this.SideName = SideName;
+//        this.MaxMember = MaxMember;
+//        
+//    }
     public boolean Check(){
         if(this.MaxMember == count){
             return false;
@@ -32,32 +27,59 @@ public class Club {
             this.Student[count++] = Student;
             System.out.println("Now You are Member");
         }
-        System.out.println("Club Is Full");
-       
+        System.out.println("Club Is Full");}
+    
+    public boolean menuChoices() {
+        Scanner input = new Scanner(System.in);
+        int key;
+        do {
+            String menu = "<<Main Menu>> \n"
+                    + "1. New Club \n"
+                    + "2. Membership Subscribe \n"
+                    + "3. Edit Membership Information \n"
+                    + "4. Membership Unsubscribe \n"
+                    + "5. List Members \n"
+                    + "6. Exit";
+            System.out.println(menu);
+            System.out.print("Enter Your Menu [1‐6]: ");
+            key = input.nextInt();
+            chooseMenu(key);
+        } while (key != 6);
+        System.out.println("Exited!");
+        
+      /*  switch (key){
+            case 1 :
+            case 2 : 
+                System.out.println("Please insert your name : ");
+                return Register(Student Student);
+            case 3 :
+            case 4 :
+            case 5 :
+        } */
+        return true;
     }
     public void listMember(){
         for (int i = 0; i < count; i++) {
-            System.out.println(student[i]);
+            System.out.println(Student[i]);
         }
-      
-    } 
+        System.out.println("kdsadaczxczxc");
+    }
     
-    public boolean editInfo(){
-        Scanner edit = new Scanner(System.in);
-       System.out.println("enter your studentId : ");
-        long id = edit.nextLong();
-        
-        for (int i = 0; i < count; i++) {
-            if(student[i].getStudentId()==id){
-                System.out.println(student[i].getName());
-                  System.out.println("edit your information : ");
-                    String name = edit.nextLine();
-                System.out.println("now your name is" +name );
-                student[i].getName()=name;
+    public void chooseMenu(int key){
+            switch (key){
+            case 1 :
+            case 2 : 
+                System.out.println("Please insert your name : ");
                 
-       }
-            return true;
-    
-   
-    
+            case 3 :
+            case 4 :
+            case 5 :
+                System.out.println("Member List");
+                listMember();
+        }
 }
+    public static void main(String[] args) {
+        Club obj = new Club();
+        obj.menuChoices();
+    }
+    }
