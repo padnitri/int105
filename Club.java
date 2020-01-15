@@ -8,7 +8,14 @@ public class Club {
     private int MaxMember;
     private int count;
     
-    public Club(String Name,String SideName,int MaxMember){
+    /*public Club(String Name,String SideName,int MaxMember){
+        this.Name = Name;
+        this.SideName = SideName;
+        this.MaxMember = MaxMember;
+        
+    }
+*/
+    private void setClub(String Name,String SideName,int MaxMember){
         this.Name = Name;
         this.SideName = SideName;
         this.MaxMember = MaxMember;
