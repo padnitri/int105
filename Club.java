@@ -1,8 +1,9 @@
-package club;
 
-import java.util.Scanner;
-
+package javaapplication1;
+    import java.util.Scanner;
 public class Club {
+
+
 
      private String Name;
     private String SideName;
@@ -10,13 +11,25 @@ public class Club {
     private int MaxMember;
     private int count;
     
-//    public Club(String Name,String SideName,int MaxMember){
-//        this.Name = Name;
-//        this.SideName = SideName;
-//        this.MaxMember = MaxMember;
-//        
-//    }
-    public boolean Check(){
+    public void setName(String Name){
+        this.Name = Name;
+    }
+
+    public void setSideName(String SideName) {
+        this.SideName = SideName;
+    }
+
+  /*public Club(String Name,String SideName,int MaxMember){
+       this.Name = Name;
+       this.SideName = SideName;
+       this.MaxMember = MaxMember;
+       
+    }*/
+    public void setMaxMember(int MaxMember) {
+        this.MaxMember = MaxMember;
+    }
+
+    public boolean Check() {
         if(this.MaxMember == count){
             return false;
         }
@@ -62,14 +75,42 @@ public class Club {
         for (int i = 0; i < count; i++) {
             System.out.println(Student[i]);
         }
-        System.out.println("kdsadaczxczxc");
+        
     }
     
     public void chooseMenu(int key){
             switch (key){
+                
             case 1 :
+                Scanner input = new Scanner(System.in);
+                String name;
+                String sidename;
+                int MaxMember;
+                System.out.println("Please insert your name club");
+                name = input.nextLine();
+                setName(name);
+                System.out.println("Please insert your sidename club");
+                sidename = input.nextLine();
+                setSideName(sidename);
+                System.out.println("Please insert your MaxMember");
+                MaxMember = input.nextInt();
+                setMaxMember(MaxMember);
+                
+                System.out.println("Name Club : " +this.Name + "| Short Name : "+this.SideName+" |MaxMember : "+this.MaxMember);
+                System.out.println("-----------------------------------------------------------------------");
+                break;
             case 2 : 
+                Scanner input1 = new Scanner(System.in);
+                long StudentId;
+                String Name; 
                 System.out.println("Please insert your name : ");
+                Name = input1.nextLine();
+                System.out.println("Please insert your StudentId");
+                StudentId = input1.nextLong();
+                Student kuy[];
+                kuy[0] = StudentId,Name;
+                
+                
                 
             case 3 :
             case 4 :
@@ -79,7 +120,11 @@ public class Club {
         }
 }
     public static void main(String[] args) {
-        Club obj = new Club();
-        obj.menuChoices();
+        Club cb1 = new Club();
+        cb1.menuChoices();
+        
+        
     }
     }
+    
+
