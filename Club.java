@@ -35,6 +35,29 @@ public class Club {
         System.out.println("Club Is Full");
        
     }
+    public void listMember(){
+        for (int i = 0; i < count; i++) {
+            System.out.println(student[i]);
+        }
+      
+    } 
+    
+    public boolean editInfo(){
+        Scanner edit = new Scanner(System.in);
+       System.out.println("enter your studentId : ");
+        long id = edit.nextLong();
+        
+        for (int i = 0; i < count; i++) {
+            if(student[i].getStudentId()==id){
+                System.out.println(student[i].getName());
+                  System.out.println("edit your information : ");
+                    String name = edit.nextLine();
+                System.out.println("now your name is" +name );
+                student[i].getName()=name;
+                
+       }
+            return true;
+    
    
     
 }
