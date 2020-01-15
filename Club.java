@@ -1,21 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package club;
 
-/**
- *
- * @author int105
- */
 public class Club {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    private String Name;
+    private String SideName;
+    private Student Student[];
+    private int MaxMember;
+    private int count;
+    
+    public Club(String Name,String SideName,int MaxMember){
+        this.Name = Name;
+        this.SideName = SideName;
+        this.MaxMember = MaxMember;
+        
     }
+    public boolean Check(){
+        if(this.MaxMember == count){
+            return false;
+        }
+        return true;
+    }
+    public void Register(Student Student){
+        if(Check() == true){
+            this.Student[count++] = Student;
+            System.out.println("Now You are Member");
+        }
+        System.out.println("Club Is Full");
+       
+    }
+   
     
 }
