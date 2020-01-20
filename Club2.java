@@ -6,7 +6,7 @@ public class Club2 {
     private String ShortName;
     private int MaxMember;
     private int count = 0;
-    private Student Student[] = new Student[MaxMember];
+    private Student Student[];
     private boolean Status;
 
 /*    public Club2(String Name, String ShortName, int MaxMember) {
@@ -18,6 +18,7 @@ public class Club2 {
                 this.Name = Name;
         this.ShortName = ShortName;
         this.MaxMember = MaxMember;
+        Student = new Student[MaxMember];
     }
 
     public Student[] getStudent() {
@@ -41,9 +42,9 @@ public class Club2 {
             System.out.println("Can't Run Programe");
             
         }
-            System.out.println("Register is Finish");
         Student[count++] = new Student(StudentId,name);
             System.out.println("Register is Finish");
+            
         }
         System.out.println("Member of Club is Full");
     }
@@ -80,7 +81,10 @@ public class Club2 {
                 System.out.println("Now your Name is "+name);
                 break;
             }
-        } while (choice != 2);
+            else{
+                
+            }
+        } while (choice == 2);
                 System.out.println("Exited!");
                 break;
                 
@@ -91,10 +95,11 @@ public class Club2 {
         
     }
     public void listMember(){
-        for (Student student : Student) {
-            System.out.println(student.getName());
-            
+        System.out.println("--------------------------------");
+        for (int i = 0; i < count; i++) {
+            System.out.println(Student[i].getName());
         }
+        System.out.println("--------------------------------");
     }
     public void outClub(long StudentId){
         Scanner input = new Scanner(System.in);
@@ -116,6 +121,7 @@ public class Club2 {
                         System.arraycopy(Student,i+1, newStudent, 0, numberCount);
                         System.arraycopy(newStudent,0,Student,i,numberCount);
                         System.out.println("Done");
+                        count -= 1;
                         break;
                     }
                     } while (choice != 2);
@@ -180,7 +186,7 @@ public class Club2 {
                 System.out.println("-----------------------------------------------------------------------");
                 break;
             case 2 : 
-                System.out.println("Name Club : " +this.Name + "| Short Name : "+this.ShortName+" |MaxMember : "+this.MaxMember);
+                System.out.println("Name Club : " +this.Name + "| Short Name : "+this.ShortName+" |MaxMember : "+this.MaxMember+ " "+this.Student.length);
                 Scanner input1 = new Scanner(System.in);
                 long StudentId;
                 String Name; 
@@ -189,7 +195,9 @@ public class Club2 {
                 System.out.println("Please insert your StudentId");
                 StudentId = input1.nextLong();
                 addStudent(StudentId,Name);
+                System.out.println(" "+Name+" "+StudentId);
                 System.out.println("Now you are member");
+                break;
 
             case 3 :
                 Scanner input2 = new Scanner(System.in);
@@ -197,6 +205,7 @@ public class Club2 {
                 System.out.println("Please searchStudentId");
                 StudentIdC3 = input2.nextLong();
                 searchStudentId(StudentIdC3);
+                break;
                 
             case 4 :
                 Scanner input3 = new Scanner(System.in);
@@ -204,15 +213,17 @@ public class Club2 {
                 System.out.println("Please searchStudentId");
                 StudentIdC4 = input3.nextLong();
                 outClub(StudentIdC4);
+                break;
             case 5 :
                 System.out.println("Member List");
                 listMember();
+                break;
         }
 }
 
     @Override
     public String toString() {
-        return "Club2{" + "Name=" + Name + ", ShortName=" + ShortName + ", MaxMember=" + MaxMember + ", count=" + count + ", Status=" + Status + '}';
+        return "Club2{" + "Name=" + Name + ", ShortName=" + ShortName + ", MaxMember=" + MaxMember + ", count=" + count + ", Status=" + Status +" " + this.Student.length;
     }
     
     
